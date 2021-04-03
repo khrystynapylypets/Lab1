@@ -1,6 +1,6 @@
 import React from 'react';
-import LeastSquaresView from './LeastSquaresView';
-import DeltaRuleView from './DetlaRuleView';
+import LeastSquaresView from './views/LeastSquaresView';
+import DeltaRuleView from './views/DetlaRuleView';
 
 function App() {
   return (

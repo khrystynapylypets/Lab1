@@ -1,25 +1,12 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import {
-  Chart,
-  ScatterSeries,
-  ArgumentAxis,
-  ValueAxis,
-  LineSeries,
+  ArgumentAxis, LineSeries, ScatterSeries, ValueAxis, Chart
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
 
-import { dataSet } from '../data';
-import { leastSquaresMethod, generatePoints } from './methods';
-
-const LeastSquaresView = () => {
-  const coefficients = leastSquaresMethod(dataSet);
-  const functionPoints = generatePoints(dataSet, coefficients);
-
-  const chartsData = [
-    ...dataSet,
-    ...functionPoints,
-  ];
+const ChartBla = (props) => {
+  const { chartData } = props;
 
   return (
     <div style={{
@@ -28,7 +15,7 @@ const LeastSquaresView = () => {
     }}>
       <Paper>
         <Chart
-          data={chartsData}
+          data={chartData}
         >
           <ArgumentAxis showGrid />
           <ValueAxis />
@@ -47,4 +34,4 @@ const LeastSquaresView = () => {
   );
 };
 
-export default LeastSquaresView;
+export default ChartBla;
