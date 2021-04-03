@@ -1,12 +1,12 @@
 import _ from 'lodash';
 
-// init data param example:
+// dataSet param example:
 // [ {x: 1, y: 5}, {x: 2, y: 4}, {x: 3, y: 5} ]
 
-export const leastSquaresMethod = (initValues) => {
-  const dataLength = initValues.length;
+export const leastSquaresMethod = (dataSet) => {
+  const dataLength = dataSet.length;
 
-  const sum = initValues.reduce((accumulator, pair) => ({
+  const sum = dataSet.reduce((accumulator, pair) => ({
     x: accumulator.x + pair.x,
     y: accumulator.y + pair.y,
   }), { x: 0, y: 0 });
@@ -16,9 +16,9 @@ export const leastSquaresMethod = (initValues) => {
     y: sum.y / dataLength,
   };
 
-  const slopeDividend = initValues
+  const slopeDividend = dataSet
     .reduce((accumulator, pair) => parseFloat(accumulator + ((pair.x - average.x) * (pair.y - average.y))), 0);
-  const slopeDivisor = initValues
+  const slopeDivisor = dataSet
     .reduce((accumulator, pair) => parseFloat(accumulator + (pair.x - average.x) ** 2), 0);
 
   const slope = slopeDivisor !== 0

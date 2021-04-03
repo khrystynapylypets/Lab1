@@ -1,61 +1,62 @@
-import { v4 as uuid } from 'uuid';
-import _ from 'lodash';
-import random from 'random';
-
 class Neuron {
-  constructor() {
-    this.inputConnections = [];
-    this.outputConnections = [];
+  x = null;
+  y = null;
+  t = null;
+  w = null;
+  q = null;
 
-    this.id = uuid();
-    this.bias = 0;
-    this.delta = 0;
-    this.output = 0;
-    this.error = 0;
+  constructor(w, q) {
+    this.w = w;
+    this.q = q;
   }
 
-  setBias(value) {
-    this.bias = value;
-  }
+  setY = (y) => {
+    this.y = y;
+  };
 
-  setOutput(value) {
-    this.output = value;
-  }
+  getY = () => {
+    return this.y;
+  };
 
-  setDelta(value) {
-    this.delta = value;
-  }
+  setX = (x) => {
+    this.x = x;
+  };
 
-  setError(value) {
-    this.error = value;
-  }
+  getX = () => {
+    return this.x;
+  };
 
-  getRandomBias() {
-    const min = -3;
-    const max = 3
-    return Math.floor(Math.random() * (+max - +min)) +min;
-    // return random.int(min, max);
-  }
+  setT = (t) => {
+    this.t = t;
+  };
 
-  addInputConnection(connection) {
-    this.inputConnections.push(connection)
-  }
+  getT = () => {
+    return this.t;
+  };
 
-  addOutputConnection(connection) {
-    this.outputConnections.push(connection)
-  }
+  setQ = (q) => {
+    this.q = q;
+  };
 
-  toJSON () {
-    return {
-      id: this.id,
-      delta: this.delta,
-      output: this.output,
-      error: this.error,
-      bias: this.bias,
-      inputConnections: _.map(this.inputConnections, value => value.toJSON()),
-      outputConnections: _.map(this.outputConnections, value => value.toJSON()),
-    };
-  }
+  getQ = () => {
+    return this.q;
+  };
+
+  setW = (w) => {
+    this.w = w;
+  };
+
+  getW = () => {
+    return this.w;
+  };
+
+  findY = () => {
+    this.y = this.x * this.w;
+  };
+
+  findNextW = () => {
+    this.w += this.q * this.x * (this.t - this.y);
+  };
 }
 
 export default Neuron;

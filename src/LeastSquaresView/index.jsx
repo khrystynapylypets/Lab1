@@ -9,7 +9,7 @@ import {
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
 
-import { dataSet } from './data';
+import { dataSet } from '../data';
 import { leastSquaresMethod, generatePoints } from './methods';
 
 const LeastSquaresView = () => {
