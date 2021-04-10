@@ -55,7 +55,7 @@ class Neuron {
   };
 
   findNextW = () => {
-    this.w += this.q * this.x * (this.t - this.y);
+    this.w = this.w + this.q * this.x * (this.t - this.y);
   };
 }
 
